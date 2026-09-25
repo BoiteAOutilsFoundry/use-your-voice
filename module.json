@@ -1,7 +1,7 @@
 {
   "id": "use-your-voice",
   "title": "Use Your Voice",
-  "version": "0.5.20",
+  "version": "1.0.0",
   "description": "Voice commands for D&D5e spells and inventory actions.",
   "compatibility": {
     "minimum": "12",
@@ -22,5 +22,9 @@
   ],
   "styles": [
     "styles/use-your-voice.css"
-  ]
+  ],
+  "socket": true,
+  "url": "https://github.com/BoiteAOutilsFoundry/use-your-voice",
+  "manifest": "https://github.com/BoiteAOutilsFoundry/use-your-voice/releases/latest/download/module.json",
+  "download": "https://github.com/BoiteAOutilsFoundry/use-your-voice/releases/download/v1.0.0/use-your-voice.zip"
 }
