@@ -1,0 +1,26 @@
+{
+  "id": "use-your-voice",
+  "title": "Use Your Voice",
+  "version": "0.5.20",
+  "description": "Voice commands for D&D5e spells and inventory actions.",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "systems": [
+    {
+      "id": "dnd5e",
+      "type": "system",
+      "compatibility": {
+        "minimum": "4.4.2",
+        "verified": "4.4.2"
+      }
+    }
+  ],
+  "esmodules": [
+    "scripts/use-your-voice.js"
+  ],
+  "styles": [
+    "styles/use-your-voice.css"
+  ]
+}
