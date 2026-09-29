@@ -35,3 +35,28 @@ Version 0.5.20
 - La répétition relance exactement l’activité initialement choisie et conserve le mode activité/automatique.
 - Alias génériques d’armes FR/EN : tir pour arcs/arbalètes/armes à feu, lancer pour armes de jet, frappe/coup/strike/hit/swing pour armes de mêlée.
 - Les alias génériques sont appliqués dynamiquement à toutes les armes équipées ; les doublons entre armes sont acceptés puisque seules les armes équipées participent à la reconnaissance.
+
+
+## Architecture du code
+
+Le dossier `scripts/` est decoupe par responsabilite pour faciliter la maintenance :
+
+- `use-your-voice.js` : point d entree, hooks Foundry et controle du microphone.
+- `settings.js` : settings, affichage JSON des alias et liste des microphones.
+- `actor-items.js` : selection de l acteur, filtrage des Items et lecture des activites D&D5e.
+- `text-matching.js` : normalisation du texte et calcul des scores de similarite.
+- `aliases.js` : alias par defaut, personnalises, appris et alias generiques des armes.
+- `matcher.js` : classement des sorts/Items/activites selon la commande vocale.
+- `debug-ui.js` : panneau de diagnostic vocal.
+- `dialogs.js` : confirmations et choix d activite.
+- `executor.js` : execution manuelle/automatique, Midi-QOL et repetition de la derniere action.
+- `default-aliases.js` : dictionnaire des alias livres avec le module.
+
+V1.07
+- Exécution générique : l'activité D&D5e est toujours la source de vérité.
+- Mode automatique : activity.use() + options Midi-QOL, sans logique par arme/sort/token.
+- Mode manuel : subsequentActions=false pour laisser attaque/dégâts à l'utilisateur.
+- Matching des noms composés renforcé (Longsword = Long Sword, etc.).
+- Les Items ne sont plus exclus de la recherche simplement parce qu’ils ne sont pas équipés.
+- Conservation de l'activityId lors d'une confirmation manuelle.
+- Verrou anti-double commande pendant l'exécution d'une activité.
